@@ -6,7 +6,10 @@ def encoder():
     unencoded = input("Please enter your password to encode: ")
     encoded = ""
     for i in unencoded:
-        encoded = encoded + str(int(i)+3)
+        num = int(i)+3
+        if num > 10:
+            num -=10
+        encoded = encoded + str(num)
     print("Your password has been encoded and stored!")
     return encoded
 
