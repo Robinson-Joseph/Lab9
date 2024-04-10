@@ -10,6 +10,16 @@ def encoder():
     print("Your password has been encoded and stored!")
     return encoded
 
+def decoder(password):
+    x = [int(y) for y in str(p)]
+    y = ""
+    for i in range(8):
+        x[i] -= 3
+        if x[i] < 0:
+            x[i] += 10
+        y += str(x[i])
+    return y
+
 def main():
     while True:
         print("Menu:")
