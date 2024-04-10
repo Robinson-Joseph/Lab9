@@ -11,16 +11,17 @@ def encoder():
     return encoded
 
 def decoder(password):
-    x = [int(y) for y in str(p)]
+    x = [int(y) for y in str(password)]
     y = ""
-    for i in range(8):
+    for i in range(len(x)):
         x[i] -= 3
         if x[i] < 0:
             x[i] += 10
         y += str(x[i])
-    return y
+    print(f"The encoded password is {password}, and the original password is {y}.")
 
 def main():
+    stored = ""
     while True:
         print("Menu:")
         print("-------------")
@@ -28,10 +29,10 @@ def main():
         print("2. Decode")
         print("3. Quit")
         entered = int(input("Please enter an option: "))
-        stored = ""
+        
         match entered:
             case 1: stored = encoder()
-            case 2: decoder()
+            case 2: decoder(stored)
             case 3: exit(200)
 
 
